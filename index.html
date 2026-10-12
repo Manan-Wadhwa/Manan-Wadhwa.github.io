@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Hi. If you're reading the source, we'd probably get along. -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manan Wadhwa</title>
+  <meta name="description" content="Manan Wadhwa works on AI safety: testing whether the methods that claim to read a model's internal state actually do.">
+  <meta property="og:title" content="Manan Wadhwa">
+  <meta property="og:description" content="AI safety research on measurement validity, interpretability and model organisms.">
+  <meta property="og:url" content="https://manan-wadhwa.github.io/">
+  <meta property="og:type" content="website">
+  <script>try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 title="Not to be confused with any of the other Manan Wadhwas on LinkedIn.">Manan Wadhwa</h1>
+    <nav aria-label="Main">
+      <span aria-current="page">Home</span>
+      <a href="cv.pdf" title="Everything, including the parts nobody asked for.">CV</a>
+      <span class="resumes">Resume:
+        <a href="resume.pdf" title="Has formatting. You're welcome.">for humans</a> ·
+        <a href="resume.txt" title="Beep boop. No icons, no columns, no feelings.">for clankers</a>
+      </span>
+      <span class="spacer"></span>
+      <button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="For the 2am readers.">☾</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="bio">
+      <p>I'm a final-year computer science undergraduate at <a href="https://mait.ac.in" title="Maharaja Agrasen Institute of Technology. Yes, the full name is that long.">MAIT</a> in Delhi, graduating in 2027. I work on AI safety, mostly on one question: when a method claims to read what's inside a model, how would we know if it's wrong? I build models where the answer is known in advance (a habit installed, hidden, or never there) and check whether the instruments find it. Usually they don't, and some of my favourite results are false positives we caught in our own work.</p>
+
+      <p>I co-founded <a href="https://redarclabs.com" title="Future Gadget Laboratory. El Psy Kongroo." data-tip-img="img/redarc.webp">Redarc Labs</a>, a nonprofit that studies what deployed AI systems can do that their models alone can't. I'm also a research fellow at <a href="https://caish.org/mars" title="Mentorship for Alignment Research Students, run by the Cambridge AI Safety Hub." data-tip-img="img/mars.webp">MARS</a> (Cambridge AI Safety Hub), working on model organisms with hidden objectives, and a special projects fellow at <a href="https://secureaifutureslab.com">Secure AI Futures Lab</a>, which works on trustworthy AI for India and South Asia. This summer I was a <a href="https://humanai.foundation/activities/gsoc2026.html">Google Summer of Code</a> fellow with <a href="https://humanai.foundation">HumanAI</a>, writing pathfinding algorithms to work out how people moved through the El Bagawat necropolis in Egypt.</p>
+    </section>
+
+    <aside class="side">
+      <figure class="portrait">
+        <img src="img/okabe.webp" width="480" height="600" alt="Okabe Rintaro from Steins;Gate, standing in for a real photo">
+        <figcaption title="Okabe is standing in until I find a photo where I don't look like I'm being held hostage.">Placeholder until I find a real photo.</figcaption>
+      </figure>
+
+      <h2>Contact</h2>
+      <p class="email" title="Email is the best way to reach me.">
+        <a id="email" data-user="wadhwamanan56" data-domain="gmail.com">wadhwamanan56 [at] gmail [dot] com</a>
+      </p>
+      <ul class="links">
+        <li><a href="https://github.com/Manan-Wadhwa">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/manan-wadhwa">LinkedIn</a></li>
+        <li><a href="https://redarclabs.com">Redarc Labs</a></li>
+      </ul>
+    </aside>
+
+    <section class="papers">
+      <h2>Papers</h2>
+      <p class="note">* equal contribution. NeurIPS workshop papers are non-archival.</p>
+      <ol>
+        <li>
+          <span class="title">Known by Construction: Calibrating Model-State Instruments Against Models Whose State Was Installed, Hidden, or Never Present</span>
+          <span class="authors"><b>Manan Wadhwa</b>*, Shivam Dubey*</span>
+          <span class="venue">New in ML, NeurIPS 2026</span>
+        </li>
+        <li>
+          <span class="title" title="Named after the 2009 fMRI study that found 'brain activity' in a dead salmon.">Dead Salmons Have a False-Positive Rate: A Calibrated Null-Model Test for Interpretability</span>
+          <span class="authors"><b>Manan Wadhwa</b>*, <span title="O Captain! My Captain!">Shivam Dubey</span>*</span>
+          <span class="venue">Interpretability as a Science, NeurIPS 2026</span>
+        </li>
+        <li>
+          <span class="title">Steered Affect Moves a Partner Agent's Activations, and the Logistic Probe That Reads It Returns a Tie-Break, Not an Estimate</span>
+          <span class="authors"><b>Manan Wadhwa</b>*, Shivam Dubey*, Debojeet Ghosh, Shreyansh Kumar, Ayushman Garg</span>
+          <span class="venue">Interpreting Agent Behavior, NeurIPS 2026</span>
+        </li>
+        <li>
+          <a class="title" href="https://openreview.net/forum?id=Nb3y9BzCOi">Toxin Circuits in ESM-2: Mechanistic Interpretability for Biosecurity Screening</a>
+          <span class="authors"><b>Manan Wadhwa</b>*, Shivam Dubey*</span>
+          <span class="venue">GenBio Workshop, ICML 2026</span>
+        </li>
+        <li>
+          <span class="title">Distance to the Boundary Is Not Steering Resistance</span>
+          <span class="authors"><b>Manan Wadhwa</b>*, Shivam Dubey*</span>
+          <span class="venue">Under review, UniReps</span>
+        </li>
+        <li>
+          <span class="title">Doubt Is a Decision: A Sparse Circuit Commits Language Models to "I Don't Know"</span>
+          <span class="authors">Sheryl Mehta*, Shagun Chadha*, Kanika Singhal*, <b>Manan Wadhwa</b>, Shivam Dubey</span>
+          <span class="venue" title="Doubt is a decision. So is the arXiv submit button.">arXiv preprint, coming soon</span>
+        </li>
+      </ol>
+
+      <h2>Before this</h2>
+      <p class="before">Technical AI Safety fellow at the <a href="https://www.aisi.dev">AI Safety Initiative</a>, Georgia Tech (2026). <a href="https://bluedot.org" title="Where I took the AI safety and biosecurity courses." data-tip-img="img/bluedot.webp">BlueDot Impact</a> courses in technical AI safety and biosecurity (2026). 6th of 1800+ in the Haas F1 Challenge, on video anomaly detection (2025).</p>
+    </section>
+  </main>
+
+  <footer>
+    <p title="Probably.">Last updated October 2026.</p>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>

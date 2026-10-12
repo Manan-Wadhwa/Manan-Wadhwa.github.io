@@ -1,0 +1,52 @@
+MANAN WADHWA
+Website: https://manan-wadhwa.github.io
+Email: wadhwamanan56@gmail.com
+GitHub: https://github.com/Manan-Wadhwa
+LinkedIn: https://linkedin.com/in/manan-wadhwa
+Location: Delhi, India
+
+EDUCATION
+Maharaja Agrasen Institute of Technology (GGSIPU), Delhi, India
+B.Tech, Computer Science and Technology, expected July 2027
+
+RESEARCH
+(* = equal contribution)
+
+Known by Construction: Calibrating Model-State Instruments Against Models Whose State Was Installed, Hidden, or Never Present
+Manan Wadhwa*, Shivam Dubey*
+New in ML, NeurIPS 2026
+
+Dead Salmons Have a False-Positive Rate: A Calibrated Null-Model Test for Interpretability
+Manan Wadhwa*, Shivam Dubey*
+Interpretability as a Science, NeurIPS 2026
+
+Steered Affect Moves a Partner Agent's Activations, and the Logistic Probe That Reads It Returns a Tie-Break, Not an Estimate
+Manan Wadhwa*, Shivam Dubey*, Debojeet Ghosh, Shreyansh Kumar, Ayushman Garg
+Interpreting Agent Behavior, NeurIPS 2026
+
+Toxin Circuits in ESM-2: Mechanistic Interpretability for Biosecurity Screening
+Manan Wadhwa*, Shivam Dubey*
+GenBio Workshop, ICML 2026
+
+Distance to the Boundary Is Not Steering Resistance
+Manan Wadhwa*, Shivam Dubey*
+Under review, UniReps
+
+Doubt Is a Decision: A Sparse Circuit Commits Language Models to "I Don't Know"
+Sheryl Mehta*, Shagun Chadha*, Kanika Singhal*, Manan Wadhwa, Shivam Dubey
+arXiv preprint, forthcoming
+
+EXPERIENCE
+Co-founder, Redarc Labs, 2026 - present
+Special Projects Fellow, Secure AI Futures Lab, 2026 - present
+Research Fellow, MARS, Cambridge AI Safety Hub, Jul 2026 - present
+Google Summer of Code Fellow, HumanAI, May 2026 - Aug 2026
+Technical AI Safety Fellow, AI Safety Initiative, Georgia Tech, Jan 2026 - May 2026
+AI and Web3 Intern, Lokachakra, Jun 2025 - Oct 2025
+
+AWARDS
+6th of 1800+ entrants, Haas F1 Challenge (video anomaly detection), 2025
+
+SKILLS
+Mechanistic interpretability, sparse autoencoders, linear probing, activation steering, model organisms, red teaming, pre-registration, null-model controls
+Python, PyTorch, Hugging Face Transformers, TransformerLens, C/C++, SQL, LaTeX, CUDA, Docker, Git
