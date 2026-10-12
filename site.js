@@ -39,6 +39,9 @@ document.querySelectorAll('[title]').forEach((el) => {
 });
 
 let tipFor = null;
+let armed = null;
+let lastPointer = 'mouse';
+document.addEventListener('pointerdown', (e) => { lastPointer = e.pointerType; }, true);
 
 function showTip(el) {
   tipFor = el;
@@ -73,10 +76,12 @@ function placeTip() {
 
 function hideTip() {
   tipFor = null;
+  armed = null;
   tip.classList.remove('show');
 }
 
 document.addEventListener('mouseover', (e) => {
+  if (lastPointer === 'touch') return; // taps are handled by click below
   const el = e.target.closest('[data-tip]');
   if (el && el !== tipFor) showTip(el);
   else if (!el && tipFor) hideTip();
@@ -86,17 +91,25 @@ document.addEventListener('focusin', (e) => {
   if (el) showTip(el);
 });
 document.addEventListener('focusout', hideTip);
-// Touch: tapping a non-link shows its tip; tapping anywhere else hides it.
+// Touch: the first tap on anything with a tip shows it (links included, so
+// phones see link tips too); a second tap on the same link follows it.
+// Tapping anywhere else hides the tip.
 document.addEventListener('click', (e) => {
   const el = e.target.closest('[data-tip]');
-  if (el && !el.closest('a, button') && el !== tipFor) showTip(el);
-  else if (!el) hideTip();
+  if (!el) { hideTip(); return; }
+  if (lastPointer === 'touch' && el.matches('a[href]') && armed !== el) {
+    e.preventDefault();
+    armed = el;
+    showTip(el);
+    return;
+  }
+  if (!el.closest('a, button') && el !== tipFor) showTip(el);
 });
 window.addEventListener('scroll', hideTip, { passive: true });
 window.addEventListener('resize', hideTip);
 
-// Notes toggle: shows every note in the page body at once, for phones where
-// tapping a link follows it instead of showing its tip.
+// Notes toggle: shows every note in the page body at once, so they can be
+// read without hovering or tapping each one.
 const notesToggle = document.getElementById('notes-toggle');
 const boxes = new Map();
 document.querySelectorAll('main [data-tip]').forEach((el) => {

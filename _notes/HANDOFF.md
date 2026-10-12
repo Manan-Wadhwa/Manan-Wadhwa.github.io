@@ -44,9 +44,10 @@ The style is modelled on Tim Hua's site (https://timhua.me, source at https://gi
   - The theme follows the visitor's system setting until they click the toggle. Their choice is saved in localStorage.
 - **Font:** Source Serif 4 from Google Fonts.
 - **Tooltips:** at load, `site.js` converts every `title=` into a themed box that appears on hover, focus or tap, then removes the attribute so the native tooltip never shows. Adding `data-tip-img="img/x.webp"` puts a picture above the text. Logos display at natural size, up to the box width and 140px high.
-- **Notes toggle:** a "notes" button in the nav shows every tooltip in `main` at once, grouped in a box under its paragraph or list item. It exists because tapping a link on a phone follows it instead of showing its tip. The choice is saved in localStorage.
+- **Notes toggle:** a "notes" button in the nav shows every tooltip in `main` at once, grouped in a box under its paragraph or list item. It lets readers see everything without hovering. The choice is saved in localStorage.
 - **Affiliation logos:** Redarc, MARS, SAFL, GSoC, AISI (Georgia Tech) and BlueDot have logo tooltips. HumanAI gets text only, so GSoC and HumanAI don't both show logos.
-- **Paper summaries:** the first three paper titles have plain-language summaries as tooltips. Tips over 160 characters get the wider, upright `#tip.long` style.
+- **Touch:** on a phone the first tap on a link shows its tip and a second tap follows it. Mouseover is ignored after touch input.
+- **Paper summaries:** all six paper titles have plain-language summaries as tooltips. Tips over 160 characters get the wider, upright `#tip.long` style.
 - **Steins;Gate references:** only one cluster is allowed.
   - The Okabe image sits in the sidebar with the caption "Placeholder until I find a real photo." The caption's tooltip makes the "held hostage" joke.
   - The Redarc Labs link tooltip shows the Redarc logo and "Future Gadget Laboratory. El Psy Kongroo."
