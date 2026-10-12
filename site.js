@@ -51,6 +51,7 @@ function showTip(el) {
     tip.appendChild(img);
   }
   tip.appendChild(document.createTextNode(el.dataset.tip));
+  tip.classList.toggle('long', el.dataset.tip.length > 160);
   tip.classList.add('show');
   placeTip();
 }
@@ -93,3 +94,46 @@ document.addEventListener('click', (e) => {
 });
 window.addEventListener('scroll', hideTip, { passive: true });
 window.addEventListener('resize', hideTip);
+
+// Notes toggle: shows every note in the page body at once, for phones where
+// tapping a link follows it instead of showing its tip.
+const notesToggle = document.getElementById('notes-toggle');
+const boxes = new Map();
+document.querySelectorAll('main [data-tip]').forEach((el) => {
+  const anchor = el.closest('li, p, figure') || el;
+  if (!boxes.has(anchor)) {
+    const box = document.createElement('div');
+    box.className = 'notes-box';
+    if (anchor.matches('li')) anchor.appendChild(box);
+    else anchor.after(box);
+    boxes.set(anchor, box);
+  }
+  const note = document.createElement('div');
+  note.className = 'note';
+  if (el.dataset.tipImg) {
+    const img = document.createElement('img');
+    img.src = el.dataset.tipImg;
+    img.alt = '';
+    img.loading = 'lazy';
+    note.appendChild(img);
+  }
+  if (!el.matches('.title, figcaption')) {
+    const label = document.createElement('b');
+    label.textContent = el.textContent.trim() + ': ';
+    note.appendChild(label);
+  }
+  note.appendChild(document.createTextNode(el.dataset.tip));
+  boxes.get(anchor).appendChild(note);
+});
+
+function setNotes(on) {
+  document.body.classList.toggle('notes-on', on);
+  notesToggle.setAttribute('aria-pressed', on);
+  if (on) hideTip();
+}
+notesToggle.addEventListener('click', () => {
+  const on = !document.body.classList.contains('notes-on');
+  setNotes(on);
+  try { localStorage.setItem('notes', on ? '1' : ''); } catch (e) {}
+});
+try { if (localStorage.getItem('notes')) setNotes(true); } catch (e) {}

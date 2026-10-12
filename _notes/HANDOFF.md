@@ -44,13 +44,16 @@ The style is modelled on Tim Hua's site (https://timhua.me, source at https://gi
   - The theme follows the visitor's system setting until they click the toggle. Their choice is saved in localStorage.
 - **Font:** Source Serif 4 from Google Fonts.
 - **Tooltips:** at load, `site.js` converts every `title=` into a themed box that appears on hover, focus or tap, then removes the attribute so the native tooltip never shows. Adding `data-tip-img="img/x.webp"` puts a picture above the text. Logos display at natural size, up to the box width and 140px high.
+- **Notes toggle:** a "notes" button in the nav shows every tooltip in `main` at once, grouped in a box under its paragraph or list item. It exists because tapping a link on a phone follows it instead of showing its tip. The choice is saved in localStorage.
+- **Affiliation logos:** Redarc, MARS, SAFL, GSoC, AISI (Georgia Tech) and BlueDot have logo tooltips. HumanAI gets text only, so GSoC and HumanAI don't both show logos.
+- **Paper summaries:** the first three paper titles have plain-language summaries as tooltips. Tips over 160 characters get the wider, upright `#tip.long` style.
 - **Steins;Gate references:** only one cluster is allowed.
   - The Okabe image sits in the sidebar with the caption "Placeholder until I find a real photo." The caption's tooltip makes the "held hostage" joke.
   - The Redarc Labs link tooltip shows the Redarc logo and "Future Gadget Laboratory. El Psy Kongroo."
   - The Okabe image itself has no tooltip. Add no other Steins;Gate references.
 - **Dead Poets Society reference:** Shivam Dubey's name in the Dead Salmons paper has the tooltip "O Captain! My Captain!".
 - **Email:** `wadhwamanan56@gmail.com`. `site.js` assembles it from `data-user` and `data-domain`, and the plain HTML shows "[at] gmail [dot] com". Keep the phone number off the site.
-- **Removed:** the Springer/ICAIN object detection paper is off the site. Keep it in the full CV.
+- **Removed:** the Springer/ICAIN object detection paper is off the site and, since 2026-10-12, off the CV too.
 - **Not wanted on the site:** links to code repos, side pages, analytics, a hobbies section.
 - **Bio framing:** the research thread is "catching false positives in interpretability methods, including our own". The affiliations come one sentence each: Redarc Labs co-founder, MARS research fellow, Secure AI Futures Lab special projects fellow, and GSoC 2026 with HumanAI. The GSoC link goes to HumanAI's GSoC 2026 page.
 

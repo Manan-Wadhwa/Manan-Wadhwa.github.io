@@ -78,7 +78,7 @@ nav {
 nav [aria-current] { color: var(--muted); }
 nav .spacer { flex: 1; }
 
-#theme-toggle {
+nav .nav-btn {
   background: none;
   border: 1px solid var(--rule);
   border-radius: 4px;
@@ -89,7 +89,8 @@ nav .spacer { flex: 1; }
   padding: 5px 9px;
   cursor: pointer;
 }
-#theme-toggle:hover { border-color: var(--accent); }
+nav .nav-btn:hover { border-color: var(--accent); }
+#notes-toggle[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
 
 main {
   display: grid;
@@ -182,6 +183,8 @@ footer {
   transition: opacity 0.12s, transform 0.12s;
 }
 #tip.show { opacity: 1; transform: none; }
+/* Paper summaries: wider and upright so a paragraph stays readable. */
+#tip.long { max-width: min(380px, calc(100vw - 16px)); font-style: normal; }
 #tip img {
   display: block;
   width: auto;
@@ -208,3 +211,21 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   #tip { transition: none; }
 }
+
+/* Notes mode: every hover note shown at once, grouped under its paragraph. */
+.notes-box {
+  display: none;
+  margin: 6px 0 12px;
+  padding: 8px 12px;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+body.notes-on .notes-box { display: block; }
+body.notes-on #tip { display: none; }
+.notes-box .note + .note { margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--rule); }
+.notes-box img { display: block; max-width: 140px; max-height: 32px; margin-bottom: 3px; border-radius: 3px; }
+.notes-box b { font-weight: 600; }
