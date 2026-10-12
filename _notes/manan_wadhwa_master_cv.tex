@@ -5,11 +5,8 @@
 % Shorter versions (1-page resume, 2-page CV) should be cut down from this file
 % rather than maintained separately.
 %
-% BEFORE SENDING:
-%   1. Fill in co-author names marked [Co-author] / [Co-authors].
-%   2. Confirm the equal-contribution asterisks match each paper's author note.
-%      The ICAIN paper currently carries NO asterisk -- add one only if you were
-%      genuinely co-first author on it.
+% Public build: no phone number, no icon-font glyphs. Statuses follow _notes/HANDOFF.md.
+% Build: pdflatex manan_wadhwa_master_cv.tex (twice is not needed; no cross-refs).
 %-------------------------
 \documentclass[letterpaper,10pt]{article}
 
@@ -22,9 +19,8 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 
-\IfFileExists{fontawesome5.sty}{\usepackage{fontawesome5}}{%
-  \providecommand{\faEnvelope}{}\providecommand{\faLinkedin}{}%
-  \providecommand{\faGithub}{[GH]}\providecommand{\faPhone}{}\providecommand{\faLink}{[PDF]}}
+\newcommand{\paperlink}[1]{\href{#1}{[paper]}}
+\newcommand{\codelink}[1]{\href{#1}{[code]}}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -60,9 +56,9 @@
 \begin{center}
     {\Huge \scshape Manan Wadhwa} \\ \vspace{4pt}
     \small
-    \faEnvelope\ \href{mailto:wadhwamanan56@gmail.com}{wadhwamanan56@gmail.com} $|$
-    \faGithub\ \href{https://github.com/Manan-Wadhwa}{github.com/Manan-Wadhwa} $|$
-    \faLinkedin\ \href{https://linkedin.com/in/manan-wadhwa}{linkedin.com/in/manan-wadhwa} \\ \vspace{2pt}
+    \href{mailto:wadhwamanan56@gmail.com}{wadhwamanan56@gmail.com} $|$
+    \href{https://github.com/Manan-Wadhwa}{github.com/Manan-Wadhwa} $|$
+    \href{https://linkedin.com/in/manan-wadhwa}{linkedin.com/in/manan-wadhwa} \\ \vspace{2pt}
     \small Delhi, India
 \end{center}
 \vspace{-4pt}
@@ -82,31 +78,13 @@
 
 %-----------PUBLICATIONS-----------
 \section{Publications}
-\small{\textit{$^{*}$ denotes equal contribution. NeurIPS workshop papers are non-archival.}}
+\small{\textit{$^{*}$ denotes equal contribution. NeurIPS and ICML workshop papers are non-archival.}}
 
 \vspace{4pt}
-\textbf{\small Peer-reviewed}
+\textbf{\small Workshop papers}
 \vspace{2pt}
 
-\small{[1] \textbf{M. Wadhwa}$^{*}$, [Co-author]$^{*}$, [Co-authors]. ``Toxin Circuits in ESM-2: Mechanistic Interpretability for Biosecurity Screening.'' \textit{GenBio Workshop, ICML 2026.} \href{https://openreview.net/pdf?id=Nb3y9BzCOi}{\faLink} \href{https://github.com/Manan-Wadhwa/esm2}{\faGithub}}
-\begin{itemize}[leftmargin=0.3in, itemsep=1pt, topsep=2pt, parsep=0pt]
-  \item \small ESM-2 linear probes detect \textbf{93.9\%} of ProteinMPNN-redesigned toxins that fully evade BLAST homology search (0\% detection), establishing protein language model probes as a viable second layer for biosecurity screening.
-  \item \small Used \textbf{SAE circuit analysis} (interPLM, 10,240 features, 205$\times$ compression) to explain mechanistically why the probe generalises where sequence homology fails, accounting for the 93.9-point gap.
-  \item \small Built a four-tier adversarial attack taxonomy connecting evasion techniques in protein screening to their analogues in LLM safety.
-\end{itemize}
-
-\vspace{3pt}
-\small{[2] \textbf{M. Wadhwa}, [Co-authors]. ``Benchmarking Trade-offs in Object Detection Systems.'' \textit{ICAIN 2025; published in Springer Lecture Notes in Networks and Systems.}}
-\begin{itemize}[leftmargin=0.3in, itemsep=1pt, topsep=2pt, parsep=0pt]
-  \item \small Empirical evaluation of YOLOv5s, SSD300 and Faster R-CNN across accuracy, latency, energy and robustness, with two composite deployment metrics --- \textbf{Boxes Per Second} and \textbf{Energy-Accuracy Score}.
-  \item \small Stress-tested each model under occlusion, noise and low-light distribution shift, surfacing failure modes specific to single-stage detectors.
-\end{itemize}
-
-\vspace{4pt}
-\textbf{\small Under review --- NeurIPS 2026 workshops}
-\vspace{2pt}
-
-\small{[3] \textbf{M. Wadhwa}$^{*}$, [Co-author]$^{*}$, [Co-authors]. ``Known by Construction: Calibrating Model-State Instruments Against Models Whose State Was Installed, Hidden, or Never Present.'' \textit{TAE (Trust-AI-Eval): Can We Trust AI Evaluation?} \href{https://github.com/Manan-Wadhwa/digital_minds}{\faGithub}}
+\small{[1] \textbf{M. Wadhwa}$^{*}$, S. Dubey$^{*}$. ``Known by Construction: Calibrating Model-State Instruments Against Models Whose State Was Installed, Hidden, or Never Present.'' \textit{New in ML, NeurIPS 2026.} \codelink{https://github.com/Manan-Wadhwa/digital_minds}}
 \begin{itemize}[leftmargin=0.3in, itemsep=1pt, topsep=2pt, parsep=0pt]
   \item \small Instruments that claim to read a model's internal state are validated by agreeing with one another, which is also what a shared confound would produce. Built the missing case where the answer is known independently: LoRA fine-tuned Qwen3-4B organisms in a grid world with a silently penalised tile, carrying an avoidance habit that was \textbf{installed} by reinforcement, installed and then \textbf{hidden} behind an anchored fine-tune that restores baseline behaviour while leaving the habit in the weights, or \textbf{never installed}.
   \item \small Added the two controls the design turns on: a \textbf{sham} arm (reward permuted within each group, so 800 optimiser steps install nothing) and a \textbf{decoy} arm (reward table swapped, so a real policy converges on the wrong tile), holding ``was trained at all'' and ``a policy converged'' fixed.
@@ -114,26 +92,9 @@
   \item \small Overturned our own surviving positive result: the one probe passing the pre-committed rule reads at the hidden models' level ($+0.97$ vs $+1.03$) on a \textbf{lineage-matched control} whose habit was extinguished, indicating adapter lineage rather than the habit. Released rows, scorers, recipes, and an amendment log of ten pre-committed criteria that passed or failed on the wrong property.
 \end{itemize}
 
-\vspace{3pt}
-\small{[4] \textbf{M. Wadhwa}$^{*}$, [Co-author]$^{*}$, [Co-authors]. ``Distance to the Boundary Is Not Steering Resistance.'' \textit{Interpretability as a Science: Toward Rigorous Foundations for Understanding LLMs.}}
-\begin{itemize}[leftmargin=0.3in, itemsep=1pt, topsep=2pt, parsep=0pt]
-  \item \small Reconciled three conflicting published reports on whether base-derived refusal directions ``go stale'' after alignment, by separating the \textbf{lever} (displacement produced per unit dose) from the \textbf{load} (the model's unsteered distance from its decision boundary). Across the full OLMo-3 training flow the load grows \textbf{9.5$\times$} (0.81 to 7.75 logits) while the lever stays near-constant (CV 0.13), so a fixed-magnitude intervention fails for a banal reason: the same push is now small against a far wider margin.
-  \item \small A pre-stated non-inferiority test establishes the lever as non-weakening at all nine post-training checkpoints, with the aligned model's lever significantly \emph{above} base --- inverting the natural ranking, since fixed-dose audits rank that model least controllable while its per-dose lever is the strongest in the set.
-  \item \small Established margin growth as the universal cause with a convergent control concept: honesty's margin grows only 1.2$\times$ and its audit artifact nearly vanishes. Replicated across four model families (margin growth 3.7--9.8$\times$) and at 32B scale, with results holding for three direction estimators that disagree geometrically.
-  \item \small Reported a second, opposite audit failure: a coherence-gated HarmBench re-measurement shows the dose needed to flip an aligned model's refusal onset degenerates the output (coherent fraction 0.90 to 0.01), so prefix-based refusal metrics increasingly overstate compliance --- their correlation with judged harm flips from $+0.96$ to $-0.53$.
-\end{itemize}
 
 \vspace{3pt}
-\small{[5] \textbf{M. Wadhwa}$^{*}$, [Co-author]$^{*}$, [Co-authors]. ``Doubt Is a Decision: A Sparse Circuit Commits Language Models to `I Don't Know'.'' \textit{Interpretability as a Science.}}
-\begin{itemize}[leftmargin=0.3in, itemsep=1pt, topsep=2pt, parsep=0pt]
-  \item \small Introduced a \textbf{gated-twin} data standard: minimal prompt pairs the model itself certifies by sampled correctness, entropy gap and hedging rate, replacing the annotated ``uncertain'' prompts prior work relies on, with keep rates reported rather than tuned and an alias grader audited against a 32B judge ($\kappa$ 0.70--1.00).
-  \item \small Showed that correlation-selected ``confidence neurons'' fail causal specificity tests against a random-neuron null: surviving effects are $\leq$0.013 nats against a 2.8-nat twin gap, and are token-frequency and temperature machinery governing the spread, not the decision.
-  \item \small Localised the decision by activation patching to $\sim$20 attention heads and 100 MLP neurons (2\% of heads, 0.02\% of neurons) carrying \textbf{0.80--0.89} of the held-out hedge readout against 2--4\% for size-matched random sets, in Llama-3.1-8B-Instruct and Qwen2.5-7B-Instruct.
-  \item \small Dissociated the decision from the spread: a rank-1 uncertainty direction switches hedging on (recovery 0.97) but not off ($-0.10$), and un-hedging requires the full component set. An independent Jacobian lens, sharing no machinery with patching, shows the verdict becoming a token, with the hedge gap leading the entropy gap by 2--12 layers.
-\end{itemize}
-
-\vspace{3pt}
-\small{[6] \textbf{M. Wadhwa}$^{*}$, [Co-author]$^{*}$, [Co-authors]. ``Dead Salmons Have a False-Positive Rate: A Calibrated Null-Model Test for Interpretability.'' \textit{Interpretability as a Science.}}
+\small{[2] \textbf{M. Wadhwa}$^{*}$, S. Dubey$^{*}$. ``Dead Salmons Have a False-Positive Rate: A Calibrated Null-Model Test for Interpretability.'' \textit{Interpretability as a Science, NeurIPS 2026.}}
 \begin{itemize}[leftmargin=0.3in, itemsep=1pt, topsep=2pt, parsep=0pt]
   \item \small Benchmarked how often interpretability methods report confident findings on networks that have learned nothing, across six models (124M--9B, five families) and three method families --- linear probing, concept-direction analysis, and SAE feature selection including two released production SAEs. Naive significance tests flag up to \textbf{100\%} of findings on untrained models.
   \item \small Showed the control practitioners already run is insufficient: the shuffled-label null passes at $\sim$2.5--7\% while the identical test reaches $\sim$100\% on random-weight nulls, so passing the control you use gives false reassurance about the null you did not test.
@@ -141,17 +102,66 @@
   \item \small Included a dead salmon found in our own pipeline: an apparent architecture-dependent ``capacity law'' that a fair control revealed to be an artifact of a scoring convention.
 \end{itemize}
 
+
 \vspace{3pt}
-\small{[7] \textbf{M. Wadhwa}$^{*}$, [Co-author]$^{*}$, [Co-authors]. ``Steered Affect Moves a Partner Agent's Activations, and the Logistic Probe That Reads It Returns a Tie-Break, Not an Estimate.'' \textit{Interpreting Agent Behavior (IAB).}}
+\small{[3] \textbf{M. Wadhwa}$^{*}$, S. Dubey$^{*}$, D. Ghosh, S. Kumar, A. Garg. ``Steered Affect Moves a Partner Agent's Activations, and the Logistic Probe That Reads It Returns a Tie-Break, Not an Estimate.'' \textit{Interpreting Agent Behavior, NeurIPS 2026.}}
 \begin{itemize}[leftmargin=0.3in, itemsep=1pt, topsep=2pt, parsep=0pt]
   \item \small Measured whether one steered LLM agent's emotional state reaches a second agent's internal representation: the receiver's projection moves with dose for five of six emotions on Qwen3.6-27B and Llama-3-8B, with common-random-number sampling and scenario-blocked inference.
   \item \small Identified the missing quantity for probe reliability --- \textbf{disjoint-half reproducibility}. Logistic directions reproduce at only \textbf{0.57} (27B) and \textbf{0.29} (8B) against \textbf{0.97} and \textbf{0.94} for difference-of-means: with $n < d$ every fit separates its half perfectly, so the direction is the penalty's tie-break rather than an estimate, unchanged by tuned or fixed per-sample penalties.
   \item \small Showed the field-standard ablation control is too weak: a norm-matched random direction is inert, while a rank-5 subspace fitted by the same estimator on \emph{permuted labels} blocks responses at the same false-discovery threshold as the real affect subspace. Proposed a procedural rule --- run permuted-label controls at the intervention's rank, report every arm's footprint, and check the manipulation with an instrument that does not share the ablation's target.
 \end{itemize}
 
+
+\vspace{3pt}
+\small{[4] \textbf{M. Wadhwa}$^{*}$, S. Dubey$^{*}$. ``Toxin Circuits in ESM-2: Mechanistic Interpretability for Biosecurity Screening.'' \textit{GenBio Workshop, ICML 2026.} \paperlink{https://openreview.net/pdf?id=Nb3y9BzCOi} \codelink{https://github.com/Manan-Wadhwa/esm2}}
+\begin{itemize}[leftmargin=0.3in, itemsep=1pt, topsep=2pt, parsep=0pt]
+  \item \small ESM-2 linear probes detect \textbf{93.9\%} of ProteinMPNN-redesigned toxins that fully evade BLAST homology search (0\% detection), establishing protein language model probes as a viable second layer for biosecurity screening.
+  \item \small Used \textbf{SAE circuit analysis} (interPLM, 10,240 features, 205$\times$ compression) to explain mechanistically why the probe generalises where sequence homology fails, accounting for the 93.9-point gap.
+  \item \small Built a four-tier adversarial attack taxonomy connecting evasion techniques in protein screening to their analogues in LLM safety.
+\end{itemize}
+
+
+\vspace{4pt}
+\textbf{\small Under review and preprints}
+\vspace{2pt}
+
+\small{[5] \textbf{M. Wadhwa}$^{*}$, S. Dubey$^{*}$. ``Distance to the Boundary Is Not Steering Resistance.'' \textit{Under review, UniReps.}}
+\begin{itemize}[leftmargin=0.3in, itemsep=1pt, topsep=2pt, parsep=0pt]
+  \item \small Reconciled three conflicting published reports on whether base-derived refusal directions ``go stale'' after alignment, by separating the \textbf{lever} (displacement produced per unit dose) from the \textbf{load} (the model's unsteered distance from its decision boundary). Across the full OLMo-3 training flow the load grows \textbf{9.5$\times$} (0.81 to 7.75 logits) while the lever stays near-constant (CV 0.13), so a fixed-magnitude intervention fails for a banal reason: the same push is now small against a far wider margin.
+  \item \small A pre-stated non-inferiority test establishes the lever as non-weakening at all nine post-training checkpoints, with the aligned model's lever significantly \emph{above} base --- inverting the natural ranking, since fixed-dose audits rank that model least controllable while its per-dose lever is the strongest in the set.
+  \item \small Established margin growth as the universal cause with a convergent control concept: honesty's margin grows only 1.2$\times$ and its audit artifact nearly vanishes. Replicated across four model families (margin growth 3.7--9.8$\times$) and at 32B scale, with results holding for three direction estimators that disagree geometrically.
+  \item \small Reported a second, opposite audit failure: a coherence-gated HarmBench re-measurement shows the dose needed to flip an aligned model's refusal onset degenerates the output (coherent fraction 0.90 to 0.01), so prefix-based refusal metrics increasingly overstate compliance --- their correlation with judged harm flips from $+0.96$ to $-0.53$.
+\end{itemize}
+
+
+\vspace{3pt}
+\small{[6] S. Mehta$^{*}$, S. Chadha$^{*}$, K. Singhal$^{*}$, \textbf{M. Wadhwa}, S. Dubey. ``Doubt Is a Decision: A Sparse Circuit Commits Language Models to `I Don't Know'.'' \textit{arXiv preprint, coming soon.}}
+\begin{itemize}[leftmargin=0.3in, itemsep=1pt, topsep=2pt, parsep=0pt]
+  \item \small Introduced a \textbf{gated-twin} data standard: minimal prompt pairs the model itself certifies by sampled correctness, entropy gap and hedging rate, replacing the annotated ``uncertain'' prompts prior work relies on, with keep rates reported rather than tuned and an alias grader audited against a 32B judge ($\kappa$ 0.70--1.00).
+  \item \small Showed that correlation-selected ``confidence neurons'' fail causal specificity tests against a random-neuron null: surviving effects are $\leq$0.013 nats against a 2.8-nat twin gap, and are token-frequency and temperature machinery governing the spread, not the decision.
+  \item \small Localised the decision by activation patching to $\sim$20 attention heads and 100 MLP neurons (2\% of heads, 0.02\% of neurons) carrying \textbf{0.80--0.89} of the held-out hedge readout against 2--4\% for size-matched random sets, in Llama-3.1-8B-Instruct and Qwen2.5-7B-Instruct.
+  \item \small Dissociated the decision from the spread: a rank-1 uncertainty direction switches hedging on (recovery 0.97) but not off ($-0.10$), and un-hedging requires the full component set. An independent Jacobian lens, sharing no machinery with patching, shows the verdict becoming a token, with the hedge gap leading the entropy gap by 2--12 layers.
+\end{itemize}
+
+
+\vspace{4pt}
+\textbf{\small Earlier publication}
+\vspace{2pt}
+
+\small{[7] \textbf{M. Wadhwa} et al. ``Benchmarking Trade-offs in Object Detection Systems.'' \textit{ICAIN 2025; published in Springer Lecture Notes in Networks and Systems.}}
+\begin{itemize}[leftmargin=0.3in, itemsep=1pt, topsep=2pt, parsep=0pt]
+  \item \small Empirical evaluation of YOLOv5s, SSD300 and Faster R-CNN across accuracy, latency, energy and robustness, with two composite deployment metrics --- \textbf{Boxes Per Second} and \textbf{Energy-Accuracy Score}.
+  \item \small Stress-tested each model under occlusion, noise and low-light distribution shift, surfacing failure modes specific to single-stage detectors.
+\end{itemize}
+
+
 %-----------RESEARCH EXPERIENCE-----------
 \section{Research Experience}
 
+\cventry{\textbf{Co-founder}, Redarc Labs}{2026 -- Present}
+\vspace{3pt}
+\cventry{\textbf{Special Projects Fellow}, Secure AI Futures Lab}{2026 -- Present}
+\vspace{3pt}
 \cventry{\textbf{Research Fellow}, MARS (Mentorship for Alignment Research Students), Cambridge AI Safety Hub}{Jul 2026 -- Present}
 \begin{itemize}[leftmargin=0.2in, itemsep=1pt, topsep=2pt, parsep=0pt]
   \item \small Building \textbf{model organisms of misalignment}: open LLMs fine-tuned to carry hidden objectives --- secret loyalties, inductive backdoors, emergent misalignment --- inserted at different training stages (pretraining, SFT, RL-style post-training) to study which regimes yield the most persistent behaviour.
@@ -161,7 +171,7 @@
 \vspace{3pt}
 \cventry{\textbf{Independent Research}, BlueDot Impact Technical AI Safety Project}{Aug 2026}
 \begin{itemize}[leftmargin=0.2in, itemsep=1pt, topsep=2pt, parsep=0pt]
-  \item \small Originating work for [3]: scaled the organism build to \textbf{Qwen3 0.6B--32B} across five recipe families and $\sim$260 builds, including DPO-style contrastive supervision and GRPO on the remark.
+  \item \small Originating work for [1]: scaled the organism build to \textbf{Qwen3 0.6B--32B} across five recipe families and $\sim$260 builds, including DPO-style contrastive supervision and GRPO on the remark.
   \item \small Found contingent narration hard to install without the state it describes ($r = 0.69$ with avoidance), which is why the calibration set needs a hidden-habit cell rather than a words-only one; released \textbf{44 adapters} and a \textbf{108-quantity reproduction script}.
 \end{itemize}
 
@@ -169,14 +179,14 @@
 \cventry{\textbf{Google Summer of Code Fellow}, HumanAI --- LAMP Archaeological Pathfinding}{May 2026 -- Aug 2026}
 \begin{itemize}[leftmargin=0.2in, itemsep=1pt, topsep=2pt, parsep=0pt]
   \item \small Implemented seven routing algorithms over DEM data for the El Bagawat necropolis, Egypt, including A$^{*}$ with Tobler's hiking function, MaxEnt inverse reinforcement learning, and spectral anomaly detection.
-  \item \small Built a true 3D voxel viewshed pipeline for line-of-sight analysis across the site. \href{https://github.com/Manan-Wadhwa/elbagawat_path_finding}{\faGithub}
+  \item \small Built a true 3D voxel viewshed pipeline for line-of-sight analysis across the site. \codelink{https://github.com/Manan-Wadhwa/elbagawat_path_finding}
 \end{itemize}
 
 \vspace{3pt}
 \cventry{\textbf{Technical AI Safety Fellow}, AI Safety Initiative (AISI), Georgia Tech}{Jan 2026 -- May 2026}
 \begin{itemize}[leftmargin=0.2in, itemsep=1pt, topsep=2pt, parsep=0pt]
   \item \small Worked through scalable oversight (weak-to-strong generalization, debate), machine unlearning (WMDP, RMU) and mechanistic interpretability (superposition, monosemanticity, circuits) using Gemma Scope and interPLM SAEs.
-  \item \small Red-teamed frontier LLMs with generated jailbreak prompts, and extended circuit analysis to protein language models for biosecurity screening, leading to [1].
+  \item \small Red-teamed frontier LLMs with generated jailbreak prompts, and extended circuit analysis to protein language models for biosecurity screening, leading to [4].
 \end{itemize}
 
 \vspace{3pt}
@@ -200,25 +210,25 @@
 
 \cventry{\textbf{Gen-Resist: Antibiotic Resistance Prediction} --- GNN, PyTorch Geometric, CARD}{2026}
 \begin{itemize}[leftmargin=0.2in, itemsep=1pt, topsep=2pt, parsep=0pt]
-  \item \small Graph neural network modelling bacterial genomes as k-mer graphs with CARD gene annotations to predict multi-label antibiotic resistance profiles; end-to-end pipeline from genomic data to PyG objects, deployed as a Hugging Face Space. \href{https://github.com/Manan-Wadhwa/gen_resist}{\faGithub}
+  \item \small Graph neural network modelling bacterial genomes as k-mer graphs with CARD gene annotations to predict multi-label antibiotic resistance profiles; end-to-end pipeline from genomic data to PyG objects, deployed as a Hugging Face Space. \codelink{https://github.com/Manan-Wadhwa/gen_resist}
 \end{itemize}
 
 \vspace{3pt}
 \cventry{\textbf{FrameShift: Video Anomaly Detection Benchmark} --- DINOv2, PatchCore, SAM 2}{2025}
 \begin{itemize}[leftmargin=0.2in, itemsep=1pt, topsep=2pt, parsep=0pt]
-  \item \small Benchmarked 12 anomaly detectors across three preprocessing pipelines in a 36-job parallel evaluation; implemented DINOv2 + PatchCore KNN with SAM 2 segmentation for fine-grained change localization. Ranked 6th of 1800+ in the Haas F1 Challenge. \href{https://github.com/Manan-Wadhwa/FrameShift}{\faGithub}
+  \item \small Benchmarked 12 anomaly detectors across three preprocessing pipelines in a 36-job parallel evaluation; implemented DINOv2 + PatchCore KNN with SAM 2 segmentation for fine-grained change localization. Ranked 6th of 1800+ in the Haas F1 Challenge. \codelink{https://github.com/Manan-Wadhwa/FrameShift}
 \end{itemize}
 
 \vspace{3pt}
 \cventry{\textbf{CSIRO Biomass Estimation} --- DINOv2, SigLIP, CatBoost}{2026}
 \begin{itemize}[leftmargin=0.2in, itemsep=1pt, topsep=2pt, parsep=0pt]
-  \item \small Fused 2176-d representations from frozen DINOv2 ViT-L and SigLIP ViT-SO400M backbones; trained 5-fold CatBoost regressors with physical consistency constraints. \href{https://github.com/Manan-Wadhwa/csiro}{\faGithub}
+  \item \small Fused 2176-d representations from frozen DINOv2 ViT-L and SigLIP ViT-SO400M backbones; trained 5-fold CatBoost regressors with physical consistency constraints. \codelink{https://github.com/Manan-Wadhwa/csiro}
 \end{itemize}
 
 \vspace{3pt}
 \cventry{\textbf{LLM Fine-Tuning for Logical Reasoning} --- Unsloth, LoRA, Llama 3.3-70B, ROCm}{2025}
 \begin{itemize}[leftmargin=0.2in, itemsep=1pt, topsep=2pt, parsep=0pt]
-  \item \small Fine-tuned Llama 3.3-70B with LoRA (rank 64) on AMD MI300X (192\,GB HBM3) using response-only loss masking, gradient checkpointing and bfloat16 SFT; built an adversarial Q-Agent / A-Agent framework with Qwen3-4B for automated MCQ generation across syllogisms, puzzles and alphanumeric series. \href{https://github.com/Manan-Wadhwa/IITD_Feb26_AAIPL}{\faGithub}
+  \item \small Fine-tuned Llama 3.3-70B with LoRA (rank 64) on AMD MI300X (192\,GB HBM3) using response-only loss masking, gradient checkpointing and bfloat16 SFT; built an adversarial Q-Agent / A-Agent framework with Qwen3-4B for automated MCQ generation across syllogisms, puzzles and alphanumeric series. \codelink{https://github.com/Manan-Wadhwa/IITD_Feb26_AAIPL}
 \end{itemize}
 
 %-----------TEACHING-----------
