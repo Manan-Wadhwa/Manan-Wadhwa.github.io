@@ -1,68 +1,80 @@
-% One-page resume. No phone number, no icon-font glyphs. Content mirrors ../resume.txt.
+% One-page resume, minimal style ("for humans"). No phone number, no icon glyphs.
+% Same facts as ../resume.txt (the ATS version); keep the two in sync.
 % Build: pdflatex manan_wadhwa_resume.tex
-\documentclass[letterpaper,10pt]{article}
-\usepackage[margin=0.6in,top=0.5in,bottom=0.45in]{geometry}
+\documentclass[letterpaper,11pt]{article}
+\usepackage[margin=0.75in,top=0.65in,bottom=0.6in]{geometry}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
-\usepackage{enumitem}
+\usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
-\usepackage{titlesec}
 \usepackage{tabularx}
+\definecolor{muted}{gray}{0.38}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
 \raggedright
 \urlstyle{same}
-\titleformat{\section}{\large\bfseries}{}{0em}{}[\vspace{-5pt}\titlerule]
-\titlespacing*{\section}{0pt}{7pt}{4pt}
-\newcommand{\row}[2]{\makebox[\textwidth][l]{#1\hfill #2}\par}
-\begin{document}
-{\LARGE\bfseries Manan Wadhwa}\\[2pt]
-\small
-\href{https://manan-wadhwa.github.io}{manan-wadhwa.github.io} $\cdot$
-\href{mailto:wadhwamanan56@gmail.com}{wadhwamanan56@gmail.com} $\cdot$
-\href{https://github.com/Manan-Wadhwa}{github.com/Manan-Wadhwa} $\cdot$
-\href{https://linkedin.com/in/manan-wadhwa}{linkedin.com/in/manan-wadhwa}\\Delhi, India
 
-\section*{Education}
-\row{\textbf{Maharaja Agrasen Institute of Technology (GGSIPU)}, Delhi, India}{\textit{Expected Jul 2027}}
-B.Tech, Computer Science and Technology
-
-\section*{Research}
-{\small * = equal contribution}\par\vspace{3pt}
+% Section label: small caps, no rule.
+\newcommand{\sect}[1]{\vspace{13pt}{\scshape\large #1}\par\vspace{5pt}}
+% Left text with a right-aligned date or venue.
+\newcommand{\row}[2]{\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X@{\hspace{10pt}}r@{}}#1 & #2\end{tabularx}\par}
+% Paper: title, then authors with venue on the right, then one line on what it found.
 \newcommand{\paper}[4]{%
-  {\raggedright\textbf{#1}\par}\vspace{1pt}
-  \noindent\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{2.75in}@{}}#2 & \textit{#3}\end{tabularx}\vspace{-4pt}
-  \begin{itemize}[leftmargin=1.2em,itemsep=0pt,topsep=1pt,parsep=0pt]\item #4\end{itemize}\vspace{2pt}}
-\small
+  {\bfseries #1\par}\vspace{1pt}
+  {\small\row{#2}{\itshape #3}}\vspace{1pt}
+  {\small\color{muted}#4\par}\vspace{7pt}}
+
+\begin{document}
+
+{\fontsize{22}{26}\selectfont Manan Wadhwa}\par\vspace{5pt}
+{\small\color{muted}
+\href{https://manan-wadhwa.github.io}{manan-wadhwa.github.io} \quad
+\href{mailto:wadhwamanan56@gmail.com}{wadhwamanan56@gmail.com} \quad
+\href{https://github.com/Manan-Wadhwa}{github.com/Manan-Wadhwa} \quad
+Delhi, India\par}
+
+\sect{Education}
+\row{\href{https://mait.ac.in}{\textbf{Maharaja Agrasen Institute of Technology (GGSIPU)}}, Delhi}{Expected Jul 2027}
+B.Tech in Computer Science and Technology \quad {\small\color{muted}\href{https://mait.ac.in}{mait.ac.in}}\par
+
+\sect{Research}
+{\small\color{muted}* equal contribution}\par\vspace{5pt}
+
 \paper{Known by Construction: Calibrating Model-State Instruments Against Models Whose State Was Installed, Hidden, or Never Present}
  {Manan Wadhwa*, Shivam Dubey*}{New in ML, NeurIPS 2026}
- {Seven probes of model state agree with each other but read the prompt or training history; the one that survived a pre-committed rule tracked adapter lineage, not the habit.}
+ {State-reading tools agree with each other but track the prompt or training, not the state.}
+
 \paper{Dead Salmons Have a False-Positive Rate: A Calibrated Null-Model Test for Interpretability}
  {Manan Wadhwa*, Shivam Dubey*}{Interpretability as a Science, NeurIPS 2026}
- {Naive tests flag up to 100\% of findings on untrained networks; a null-model quantile test against matched untrained models fixes this.}
+ {Interpretability methods find confident results in untrained models; we calibrate against them.}
+
 \paper{Steered Affect Moves a Partner Agent's Activations, and the Logistic Probe That Reads It Returns a Tie-Break, Not an Estimate}
  {Manan Wadhwa*, Shivam Dubey*, Debojeet Ghosh, Shreyansh Kumar, Ayushman Garg}{Interpreting Agent Behavior, NeurIPS 2026}
- {Logistic probe directions reproduce at 0.29--0.57 against 0.94--0.97 for difference-of-means; permuted-label ablations block responses as well as the real subspace.}
+ {A steered agent's emotion shows up in its partner; logistic probe directions fail to reproduce.}
+
 \paper{Toxin Circuits in ESM-2: Mechanistic Interpretability for Biosecurity Screening}
  {Manan Wadhwa*, Shivam Dubey*}{GenBio Workshop, ICML 2026}
- {ESM-2 probes detect 93.9\% of redesigned toxins that evade BLAST; SAE circuit analysis explains why.}
+ {ESM-2 probes catch 93.9\% of redesigned toxins that sequence screening misses entirely.}
+
 \paper{Distance to the Boundary Is Not Steering Resistance}
  {Manan Wadhwa*, Shivam Dubey*}{Under review, UniReps}
- {Post-training grows the margin 9.5$\times$ while per-dose steering strength stays flat, so fixed-dose audits misread steerability.}
+ {Alignment training widens the decision margin 9.5$\times$ while steering strength stays flat.}
+
 \paper{Doubt Is a Decision: A Sparse Circuit Commits Language Models to ``I Don't Know''}
  {Sheryl Mehta*, Shagun Chadha*, Kanika Singhal*, Manan Wadhwa, Shivam Dubey}{arXiv preprint, coming soon}
- {About 20 attention heads and 100 MLP neurons carry 0.80--0.89 of the hedging readout in two 7--8B models.}
-\normalsize
-\section*{Experience}
-\small
-\row{\textbf{Co-founder}, Redarc Labs}{2026 -- present}
-\row{\textbf{Special Projects Fellow}, Secure AI Futures Lab}{2026 -- present}
-\row{\textbf{Research Fellow}, MARS, Cambridge AI Safety Hub}{Jul 2026 -- present}
-\row{\textbf{Google Summer of Code Fellow}, HumanAI}{May 2026 -- Aug 2026}
-\row{\textbf{Technical AI Safety Fellow}, AI Safety Initiative, Georgia Tech}{Jan 2026 -- May 2026}
-\row{\textbf{AI and Web3 Intern}, Lokachakra}{Jun 2025 -- Oct 2025}
-\normalsize
-\section*{Awards}
-\small
-\row{6th of 1800+ entrants, Haas F1 Challenge (video anomaly detection)}{2025}
+ {About 20 attention heads and 100 neurons decide when a model says it does not know.}
+
+\vspace{-7pt}
+\sect{Experience}
+\row{\textbf{Co-founder}, Redarc Labs}{2026 -- present}\vspace{2pt}
+\row{\textbf{Special Projects Fellow}, Secure AI Futures Lab}{2026 -- present}\vspace{2pt}
+\row{\textbf{Research Fellow}, MARS, Cambridge AI Safety Hub}{Jul 2026 -- present}\vspace{2pt}
+\row{\textbf{Google Summer of Code Fellow}, HumanAI}{May -- Aug 2026}\vspace{2pt}
+\row{\textbf{Technical AI Safety Fellow}, AI Safety Initiative, Georgia Tech}{Jan -- May 2026}\vspace{2pt}
+\row{\textbf{AI and Web3 Intern}, Lokachakra}{Jun -- Oct 2025}
+
+\sect{Awards}
+\row{6th of 1800+, Haas F1 Challenge (video anomaly detection)}{2025}
+
 \end{document}

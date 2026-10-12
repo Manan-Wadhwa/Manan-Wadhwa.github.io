@@ -48,6 +48,7 @@ The style is modelled on Tim Hua's site (https://timhua.me, source at https://gi
 - **Affiliation logos:** Redarc, MARS, SAFL, GSoC, AISI (Georgia Tech) and BlueDot have logo tooltips. HumanAI gets text only, so GSoC and HumanAI don't both show logos.
 - **Touch:** on a phone the first tap on a link shows its tip and a second tap follows it. Mouseover is ignored after touch input.
 - **Paper summaries:** all six paper titles have plain-language summaries as tooltips. Tips over 160 characters get the wider, upright `#tip.long` style.
+- **Resumes:** `resume.pdf` ("for humans") is minimal: one page, no rules, one muted line per paper, built from `_notes/manan_wadhwa_resume.tex`. `resume.txt` ("for clankers") is the ATS version: plain ASCII, standard headings (SUMMARY, EDUCATION, EXPERIENCE, PUBLICATIONS, AWARDS, SKILLS), full month names, one fact per line, keyword-heavy SKILLS. `llms.txt` is the bio plus `resume.txt`; regenerate it when `resume.txt` changes.
 - **Steins;Gate references:** only one cluster is allowed.
   - The Okabe image sits in the sidebar with the caption "Placeholder until I find a real photo." The caption's tooltip makes the "held hostage" joke.
   - The Redarc Labs link tooltip shows the Redarc logo and "Future Gadget Laboratory. El Psy Kongroo."
