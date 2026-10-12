@@ -8,7 +8,9 @@ function currentTheme() {
 }
 
 function syncIcon() {
-  toggle.textContent = currentTheme() === 'dark' ? '☀' : '☾';
+  const dark = currentTheme() === 'dark';
+  toggle.textContent = dark ? '☀' : '☾';
+  toggle.dataset.tip = dark ? 'For the 2pm readers.' : 'For the 2am readers.';
 }
 
 toggle.addEventListener('click', () => {
@@ -16,6 +18,7 @@ toggle.addEventListener('click', () => {
   root.dataset.theme = next;
   try { localStorage.setItem('theme', next); } catch (e) {}
   syncIcon();
+  if (tipFor === toggle) showTip(toggle);
 });
 systemDark.addEventListener('change', syncIcon);
 syncIcon();
