@@ -168,7 +168,23 @@ footer {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "bio" "side" "papers";
   }
-  .portrait { max-width: 200px; }
+  /* Phones: photo on the left, contact and links beside it, top-aligned. */
+  .side {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    grid-auto-rows: min-content;
+    column-gap: 18px;
+    align-items: start;
+    margin-bottom: 8px;
+  }
+  .side > * { grid-column: 2; }
+  .portrait { grid-column: 1; grid-row: 1 / span 4; margin: 0; }
+  .portrait figcaption { text-align: left; }
+  .side h2 { margin-top: 0; }
+  /* Notes mode adds boxes after each item, so stack the sidebar again. */
+  body.notes-on .side { display: block; }
+  body.notes-on .portrait { max-width: 200px; margin-bottom: 8px; }
+  body.notes-on .side h2 { margin-top: 24px; }
 }
 
 /* Themed tooltip, built by site.js from title="..." attributes. */

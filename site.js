@@ -27,7 +27,8 @@ syncIcon();
 const email = document.getElementById('email');
 const address = email.dataset.user + '@' + email.dataset.domain;
 email.href = 'mailto:' + address;
-email.textContent = address;
+// <wbr> lets a narrow screen wrap at the @ instead of mid-word.
+email.replaceChildren(email.dataset.user, document.createElement('wbr'), '@' + email.dataset.domain);
 
 // Tooltips: title="..." in the HTML becomes a small themed box on hover,
 // focus or tap. data-tip-img="path" adds a picture above the text.
