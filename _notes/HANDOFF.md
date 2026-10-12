@@ -42,7 +42,7 @@ The style is modelled on Tim Hua's site (https://timhua.me, source at https://gi
   - Light (palette A): `#f8f3e8` background, `#2a2420` text, `#8a2b1c` accent.
   - Dark (palette D): `#1c1a17` background, `#e8e2d6` text, `#e0a36b` accent.
   - The theme follows the visitor's system setting until they click the toggle. Their choice is saved in localStorage.
-- **Font:** Source Serif 4 from Google Fonts.
+- **Font:** Libron v0.31 (https://github.com/nicoverbruggen/libron), self-hosted in `fonts/` from the official `Libron_Web.zip` release, with its OFL licence as `fonts/OFL.txt`. Chosen 2026-10-12 over Source Serif 4 (the previous font) and Newsreader. It has only weights 400 and 700, so the CSS uses only those. Don't subset or edit the files: "Libron" is a Reserved Font Name, so a modified copy would need a new name.
 - **Tooltips:** at load, `site.js` converts every `title=` into a themed box that appears on hover, focus or tap, then removes the attribute so the native tooltip never shows. Adding `data-tip-img="img/x.webp"` puts a picture above the text. Logos display at natural size, up to the box width and 140px high.
 - **Notes toggle:** a "notes" button in the nav shows every tooltip in `main` at once, grouped in a box under its paragraph or list item. It lets readers see everything without hovering. The choice is saved in localStorage.
 - **Affiliation logos:** Redarc, MARS, SAFL, GSoC, AISI (Georgia Tech) and BlueDot have logo tooltips. HumanAI gets text only, so GSoC and HumanAI don't both show logos.

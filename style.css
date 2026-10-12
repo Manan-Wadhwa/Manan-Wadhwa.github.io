@@ -1,3 +1,11 @@
+/* Libron v0.31 by Nico Verbruggen (OFL, see fonts/OFL.txt). Self-hosted,
+   official release files. It has two weights, 400 and 700, so the CSS
+   below uses only those. */
+@font-face { font-family: "Libron"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/Libron-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Libron"; font-style: italic; font-weight: 400; font-display: swap; src: url("fonts/Libron-Italic.woff2") format("woff2"); }
+@font-face { font-family: "Libron"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/Libron-Bold.woff2") format("woff2"); }
+@font-face { font-family: "Libron"; font-style: italic; font-weight: 700; font-display: swap; src: url("fonts/Libron-BoldItalic.woff2") format("woff2"); }
+
 /* Light is palette A ("paper"), dark is palette D. */
 :root {
   --bg: #f8f3e8;
@@ -39,7 +47,7 @@ body {
   padding: 40px 24px 32px;
   background: var(--bg);
   color: var(--ink);
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: "Libron", Georgia, serif;
   font-size: 17px;
   line-height: 1.6;
 }
@@ -53,13 +61,13 @@ a:hover { border-bottom-color: var(--accent); }
 
 h1 {
   font-size: 2.1rem;
-  font-weight: 500;
+  font-weight: 400;
   margin: 0 0 6px;
 }
 
 h2 {
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
@@ -137,11 +145,11 @@ main {
 .papers ol { list-style: none; padding: 0; margin: 0; }
 .papers li { margin-bottom: 18px; }
 .papers .title, .papers .authors, .papers .venue { display: block; }
-.papers .title { font-weight: 500; }
+.papers .title { font-weight: 400; }
 .papers span.title { color: var(--ink); }
 .papers a.title { width: fit-content; }
 .papers .authors { font-size: 0.92rem; color: var(--muted); }
-.papers .authors b { color: var(--ink); font-weight: 600; }
+.papers .authors b { color: var(--ink); font-weight: 700; }
 .papers .venue { font-size: 0.92rem; font-style: italic; color: var(--accent); }
 
 .before { font-size: 0.95rem; }
@@ -228,4 +236,4 @@ body.notes-on .notes-box { display: block; }
 body.notes-on #tip { display: none; }
 .notes-box .note + .note { margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--rule); }
 .notes-box img { display: block; max-width: 140px; max-height: 32px; margin-bottom: 3px; border-radius: 3px; }
-.notes-box b { font-weight: 600; }
+.notes-box b { font-weight: 700; }
