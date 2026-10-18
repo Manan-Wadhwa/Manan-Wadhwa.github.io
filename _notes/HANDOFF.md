@@ -56,7 +56,8 @@ The style is modelled on Tim Hua's site (https://timhua.me, source at https://gi
 - **Dead Poets Society reference:** Shivam Dubey's name in the Dead Salmons paper has the tooltip "O Captain! My Captain!".
 - **Email:** `wadhwamanan56@gmail.com`. `site.js` assembles it from `data-user` and `data-domain`, and the plain HTML shows "[at] gmail [dot] com". Keep the phone number off the site.
 - **Removed:** the Springer/ICAIN object detection paper is off the site and, since 2026-10-12, off the CV too.
-- **Not wanted on the site:** links to code repos, side pages, analytics, a hobbies section.
+- **Not wanted on the site:** links to code repos, side pages, a hobbies section.
+- **Analytics:** GoatCounter (cookie-free), added 2026-10-18 at Manan's request. Script tag at the end of `index.html`; stats at https://manan-wadhwa.goatcounter.com.
 - **Bio framing:** the research thread is "catching false positives in interpretability methods, including our own". The affiliations come one sentence each: Redarc Labs co-founder, MARS research fellow, Secure AI Futures Lab special projects fellow, and GSoC 2026 with HumanAI. The GSoC link goes to HumanAI's GSoC 2026 page.
 
 ## Papers as shown on the site (in this order)
